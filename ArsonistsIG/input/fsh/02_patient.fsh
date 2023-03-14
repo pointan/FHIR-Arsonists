@@ -15,6 +15,19 @@ Description:  "Profile for a patient in Austria. This is based on the FHIR Patie
 * gender = AdministrativeGender#female (exactly)
 * birthDate obeys inv1
 
+// slice the identifier
+* identifier ^slicing.rules = #openAtEnd
+* identifier contains svnr 1..1
+
+// define what svnr looks like
+* identifier[svnr].type.coding.system = HL7V2
+* identifier[svnr].type.coding.code = HL7V2#SS (exactly)
+* identifier[svnr].type.coding.display = "Social Security Number" (exactly)
+* identifier[svnr].system 1..1
+* identifier[svnr].system = "urn:oid:1.2.40.0.10.1.4.3.1" (exactly)
+* identifier[svnr].system ^short = "OID for the Social Security Number in Austria"
+* identifier[svnr].assigner.display = "Dachverband der österreichischen Sozialversicherungsträger" (exactly)
+
 Invariant: inv1
 Description: "Birthdate cannot be after today"
 Expression: "/f:Patient/f:birthDate &lt;=current-date()"
