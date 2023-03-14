@@ -17,6 +17,8 @@ Description:  "Profile for a patient in Austria. This is based on the FHIR Patie
 
 // slice the identifier
 * identifier ^slicing.rules = #openAtEnd
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "type.assigner.reference"
 * identifier contains svnr 1..1
 
 // define what svnr looks like
@@ -27,6 +29,7 @@ Description:  "Profile for a patient in Austria. This is based on the FHIR Patie
 * identifier[svnr].system = "urn:oid:1.2.40.0.10.1.4.3.1" (exactly)
 * identifier[svnr].system ^short = "OID for the Social Security Number in Austria"
 * identifier[svnr].assigner.display = "Dachverband der österreichischen Sozialversicherungsträger" (exactly)
+* identifier[svnr].assigner.reference = "https://www.gesundheit.gv.at/OID_Frontend/..."
 
 Invariant: inv1
 Description: "Birthdate cannot be after today"
