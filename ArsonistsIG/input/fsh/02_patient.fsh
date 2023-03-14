@@ -12,3 +12,4 @@ Description:  "Profile for a patient in Austria. This is based on the FHIR Patie
 
 * identifier 3..*
 * photo 0..0
+* gender = AdministrativeGender#female (exactly)
