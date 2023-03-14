@@ -10,3 +10,4 @@ Id:           hl7at-patient
 Title:        "HL7 AT Patient Profile"
 Description:  "Profile for a patient in Austria. This is based on the FHIR Patient resource, and is designed to store all the info we need."
 
+* identifier 3..*
