@@ -31,6 +31,10 @@ Description:  "Profile for a patient in Austria. This is based on the FHIR Patie
 * identifier[svnr].assigner.display = "Dachverband der österreichischen Sozialversicherungsträger" (exactly)
 * identifier[svnr].assigner.reference = "https://www.gesundheit.gv.at/OID_Frontend/..."
 
+// add extension nationality
+* extension contains PatientNationality named nationality 0..1
+* extension[nationality] ^short = "Nationality of a patient"
+
 Invariant: inv1
 Description: "Birthdate cannot be after today"
 Expression: "/f:Patient/f:birthDate &lt;=current-date()"
